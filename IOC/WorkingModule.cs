@@ -2,19 +2,20 @@ using Autofac;
 using Microsoft.Extensions.Hosting;
 using nlogEx.Services.EndpointFileCheckingService;
 
-namespace nlogEx.IOC;
-
-public class WorkingModule : Module
+namespace nlogEx.IOC
 {
-	protected override void Load(ContainerBuilder builder)
+	public class WorkingModule : Module
 	{
-		base.Load(builder);
-            
-		RegisterBackgroundServices(builder);
-	}
+		protected override void Load(ContainerBuilder builder)
+		{
+			base.Load(builder);
 
-	private void RegisterBackgroundServices(ContainerBuilder builder)
-	{
-		builder.RegisterType<EndpointFileCheckingService>().As<IHostedService>().SingleInstance();
+			RegisterBackgroundServices(builder);
+		}
+
+		private void RegisterBackgroundServices(ContainerBuilder builder)
+		{
+			builder.RegisterType<EndpointFileCheckingService>().As<IHostedService>().SingleInstance();
+		}
 	}
 }

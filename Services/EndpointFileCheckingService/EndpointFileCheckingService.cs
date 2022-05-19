@@ -30,7 +30,7 @@ namespace nlogEx.Services.EndpointFileCheckingService
                 
 				await Task.Delay(1000, stoppingToken);
 
-				LogManager.Setup().ReloadConfiguration();
+				//LogManager.Setup().ReloadConfiguration();
 			}
 		}
 	}
